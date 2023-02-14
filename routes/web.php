@@ -68,3 +68,8 @@ Route::get('/payment',function(){
 Route::get('/find_doctor',function(){
     return view('project.find_doctor');
 });
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard', 'backend\PageController@dashboard');
+});

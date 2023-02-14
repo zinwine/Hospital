@@ -18,8 +18,10 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('photo');
             $table->string('department');
-            $table->enum('department', ['male', 'female']);
+            $table->enum('gender', ['male', 'female']);
             $table->string('bechelor');
+            $table->string('experience');
+            $table->integer('age');
             $table->string('specialist');
             $table->timestamps();
         });
