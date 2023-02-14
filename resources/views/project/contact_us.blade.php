@@ -46,13 +46,7 @@
                                     <input type="tel" name="telephone" id="telephone" class="form-control" placeholder="Telephone">
 
                                 </div>
-                                <!-- end section -->
-
-                                <div class="section">
-                                    <label class=""> <span class=""><i class="fa fa-lightbulb-o"></i></span>&nbsp;&nbsp;Subject </label>
-                                    <input type="text" name="sendersubject" id="sendersubject" class="form-control" placeholder="Enter subjec">
-
-                                </div>
+                                
                                 <!-- end section -->
 
                                 <div class="section">

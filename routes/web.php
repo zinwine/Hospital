@@ -11,6 +11,12 @@
 |
 */
 
+// ************* Rooms Route *****************
+
+Route::get('/room_category', 'RoomController@index');
+Route::get('/vip_all', 'RoomController@vip_rooms');
+Route::get('/normal_all', 'RoomController@normal_rooms');
+
 Route::get('/', function () {
     return view('project.home');
 });
@@ -31,12 +37,6 @@ Route::get('/career',function (){
 });
 Route::get('/career_detail',function(){
     return view('project.career_detail');
-});
-Route::get('/room_category',function(){
-    return view('project.room_category');
-});
-Route::get('/all_room',function (){
-    return view('project.all_room');
 });
 Route::get('/booking',function(){
     return view('project.booking');
@@ -67,7 +67,4 @@ Route::get('/payment',function(){
 });
 Route::get('/find_doctor',function(){
     return view('project.find_doctor');
-});
-Route::get('/normal_room',function(){
-    return view('project.normal_room');
 });

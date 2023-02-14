@@ -1,5 +1,4 @@
 @extends('project.master')
-
 @section('title','Room Category')
 @section('content')
 
@@ -18,7 +17,7 @@
 
             <img src="{{asset('project/img/room/7.jpg')}}">  <br>
 
-            <a href="{{url('/all_room')}}" class="btn btn_submit                    pull-right">See all room</a>
+            <a href="{{url('/vip_all')}}" class="btn btn_submit                    pull-right">See all room</a>
                  <div class="clearfix"></div>
             <br>
         </div>
@@ -74,7 +73,7 @@
 
             <br>
 
-            <a href="{{url('/normal_room')}}" class="btn btn_submit pull-right">See all room</a>
+            <a href="{{url('/normal_all')}}" class="btn btn_submit pull-right">See all room</a>
              <div class="clearfix"></div>
 
             <br>

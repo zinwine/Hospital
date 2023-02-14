@@ -7,14 +7,25 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*** Room Category ***/
+
     public function index()
     {
-        //
+        return view('project.room_category');
+    }
+    
+    /*** Vip Room ***/
+
+    public function vip_rooms()
+    {
+        return view('project.all_room');
+    }
+    
+    /*** Normal Room ***/
+
+    public function normal_rooms()
+    {
+        return view('project.normal_room');
     }
 
     /**
