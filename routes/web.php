@@ -11,15 +11,33 @@
 |
 */
 
+// Route::get('lang/{lang}', 'Frontend\HomeController@lang');
+
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+    
+    // ************* Home Page Route *****************
+
+    Route::get('/', 'Frontend\HomeController@index');
+   
+    // ************* Doctor Route *****************
+    
+    Route::get('/doctor_profile/{id}', 'Frontend\DoctorController@doctor_detail');
+    
+    // ************* Article Route *****************
+    
+    Route::get('/article_detail/{id}', 'Frontend\ArticleController@article_detail');
+    
+    // ************* News Route *****************
+    
+    Route::get('/news_detail/{id}', 'Frontend\NewsController@news_detail');
+    
+});
 // ************* Rooms Route *****************
 
 Route::get('/room_category', 'RoomController@index');
 Route::get('/vip_all', 'RoomController@vip_rooms');
 Route::get('/normal_all', 'RoomController@normal_rooms');
 
-Route::get('/', function () {
-    return view('project.home');
-});
 Route::get('/news',function (){
     return view('project.news');
 });
@@ -53,9 +71,7 @@ Route::get('/contact_us',function (){
 Route::get('/appointment',function(){
     return view('project.appointment');
 });
-Route::get('/doctor_profile',function(){
-    return view('project.doctor_profile');
-});
+
 Route::get('/department',function(){
     return view('project.department');
 });
@@ -71,5 +87,18 @@ Route::get('/find_doctor',function(){
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('dashboard', 'backend\PageController@dashboard');
+    Route::get('dashboard', 'Backend\PageController@dashboard');
+
+    // ************* Doctor Route *****************
+
+    Route::get('doctors', 'Backend\DoctorController@index');
+
+    // ************* Article Route *****************
+
+    Route::get('articles', 'Backend\ArticleController@index');
+
+    // ************* News Route *****************
+
+    Route::get('news', 'Backend\NewsController@index');
+
 });

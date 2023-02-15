@@ -3,6 +3,7 @@
 @section('title','Hospital Home')
 @section('content')
 
+
     <div class="container-fluid">
 
         <div class="first row" style="margin-top:-20px;">
@@ -48,19 +49,18 @@
 
         <div class="row article_content">
             <div class="col-md-6 col-md-push-6 article_right" >
-                <img src="{{asset('project/img/article/heart.jpg')}}" class="img-responsive" style="width:100%;" alt="" >
+                <img src={{$article->image}} class="img-responsive" style="width:100%;" alt="" >
 
             </div>
             
-
             <div class="col-md-6 col-md-pull-6 article_left">
-                <h4 style="padding-bottom:20px;">ရုတ္တရက္  Heart Attack ရခဲ့လ်ွင္</h4>
+                <h4 style="padding-bottom:20px;">{{$article->title}}</h4>
 
-                <i class="fa fa-user">&nbsp;&nbsp;Dr. Aung Thu&nbsp;&nbsp;</i>
-                <i class="fa fa-calendar">&nbsp;&nbsp;29-April 2017</i>
+                <i class="fa fa-user">&nbsp;&nbsp;Dr. {{$article->author}}&nbsp;&nbsp;</i>
+                <i class="fa fa-calendar">&nbsp;&nbsp;{{$article->created_at}}</i>
 
-                <p style="margin-right: 25px; color:#333; padding-top:20px;">အသက္ၾကီး လာသည္ႏွင့္ အမွ် ႏွလံုးေသြးေၾကာ က်ဥ္းေရာဂါ အနည္းႏွင့္ အမ်ား ျဖစ္ပြားလာတတ္ပါသည္။ တခ်ိဳ႕ ႏွလံုးေသြးေၾကာက်ဥ္း လူနာမ်ားသည္ ႏွလံုးေသြးေၾကာ က်ဥ္းေသာ ေရာဂါလကၡဏာ ပင္ မခံစားရဘဲ ရုတ္တရက္ ႏွလံုးေသြးေၾကာပိတ္ ျပီး Heart Attack ရတတ္ပါသည္။ ထုိ႔ အျပင္ ရုတ္တရက္ ရင္ဘတ္ေအာင့္လွ်င္ အျဖစ္ႏုိင္ဆံုးေသာ အျဖစ္အမ်ားဆံုးေသာ အေၾကာင္း အရာမွာ ႏွလံုးေသြးေၾကာပိတ္ျခင္း (Myocardial Infarct) ေၾကာင့္ ျဖစ္ပါသည္။ Heart Attack ရေသာ လူနာ၏ေရာဂါ လကၡဏာမ်ားမွာ</p>
-                <a href="{{url('/single_article')}}" class="pull-right" style="margin-right: 25px;color:#00838f">Read More <i class="fa fa-angle-double-right"></i></a>
+                <p style="margin-right: 25px; color:#333; padding-top:20px;">{{$article->body}}</p>
+                <a href="{{url('/article_detail/' . $article->id)}}" class="pull-right" style="margin-right: 25px;color:#00838f">Read More <i class="fa fa-angle-double-right"></i></a>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -79,29 +79,29 @@
                 </div>
             </div>
             <div class="row ">
-
-                <!--   <h3 class="news_h3">Recent News</h3> <br/> <br/> -->
+                             
+                @foreach($choose_news as $news)
 
                 <div class="col-md-6 news_post">
 
                     <div class="row left_news">
                         <div class="col-md-6" style="padding:0;">
-                            <img src="{{asset('project/img/news/instance.png')}}" alt="" class="news_img img-responsive">
+                            <img src="{{ $news->image }}" alt="" class="news_img img-responsive">
 
                             <p class="news_z-index">
-                                <i class="fa fa-user"></i> Mg Kyaw <i class="fa fa-calendar"></i> 1.1.2017 1:00PM</p>
+                                <i class="fa fa-user"></i> {{ $news->author }} <i class="fa fa-calendar"></i> {{ $news->created_at}}</p>
                         </div>
 
                         <div class="col-md-6 ">
-                            <h6 class="news_h4">ေခါက္ဆြဲထုပ္ကို အႏၱရာယ္ကင္းေအာင္ </h6>
-                            <p class="news_p">ေခါက္ဆြဲထုပ္ကို အမ်ားႀကီး စား ရင္ အစာမေၾကျဖစ္တတ္ပါတယ္။ ေခါက္ ဆြဲထုပ္ကို အဆင္သင့္အစာ (Junk Food) အျဖစ္ က်န္းမာေရးနဲ႔ မညီၫြတ္ တဲ့ အစာလို႔ ေဝဖန္ၾကပါတယ္။ ေခါက္ ဆြဲထုပ္တစ္ထုပ္မွာ ကာဗိုဟိုက္ဒရိတ္နဲ႔ အဆီပါဝင္မႈ မ်ားေပမယ့္ အမွ်င္ဓာတ္၊ ဗီတာမင္နဲ႔ သတၲဳဓာတ္ေတြ  </p>
-                            <a href="{{url('/single_new')}}" class="pull-right">Read More <i class="fa fa-angle-double-right"></i></a>
+                            <h6 class="news_h4" style="word-wrap: break-word;">{{ $news->title}}</h6>
+                            <p class="news_p">{{ substr($news->body, 0, 400) }}</p>
+                            <a href="{{url('/news_detail/' . $news->id )}}" class="pull-right">Read More <i class="fa fa-angle-double-right"></i></a>
                         </div>
 
                     </div>
                 </div>
-
-                <div class="col-md-6">
+                @endforeach
+                {{-- <div class="col-md-6">
 
                     <div class="row left_news">
                         <div class="col-md-6" style="padding:0;">
@@ -119,7 +119,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
@@ -141,11 +141,13 @@
                     <div class="large-12 columns">
                         <div class="owl-carousel owl-theme">
 
+                            @foreach($doctors as $doc)
+
                             <div class="item active">
                                 <div class="col-sm-12 col-md-12">
                                     <div class="thumbnail doctor_profile">
 
-                                        <img src="{{asset('project/img/doctor/d1.png')}}" alt="..." class="doctor_img img-responsive">
+                                        <img src="{{$doc->photo}}" alt="..." class="doctor_img img-responsive">
 
                                         <ul class="list-inline">
                                             <li><a href="#">
@@ -164,9 +166,9 @@
                                         </ul>
 
                                         <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
+                                            <h4 class="doctor_h4">{{$doc->name}}</h4>
+                                            <p class="doctor_p">{{$doc->bechelor}}</p>
+                                            <a href="{{url('/doctor_profile/'.$doc->id)}}" class="btn btn-default doctor_btn">View Profile</a>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
@@ -174,235 +176,7 @@
                                 </div>
                             </div>
 
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d2.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d3.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d4.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d5.png')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d6.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d7.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="item">
-                                <div class="col-sm-12 col-md-12">
-                                    <div class="thumbnail doctor_profile">
-
-                                        <img src="{{asset('project/img/doctor/d8.jpg')}}" alt="..." class="doctor_img img-responsive">
-
-                                        <ul class="list-inline">
-                                            <li><a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-instagram"></i>
-                                                </a></li>
-                                            <li><a href="#">
-                                                    <i class="fa fa-skype"></i>
-                                                </a></li>
-
-                                        </ul>
-
-                                        <div class="caption">
-                                            <h4 class="doctor_h4">Dr. Aung Thu</h4>
-                                            <p class="doctor_p">MBBS. MD (Internal Medicine), DM (Pulmonary and Critical Care  Medicine)</p>
-                                            <a href="{{url('/doctor_profile')}}" class="btn btn-default doctor_btn">View Profile</a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                     </div>

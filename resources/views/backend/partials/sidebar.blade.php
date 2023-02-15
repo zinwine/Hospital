@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+              <h5 class="mb-0 font-weight-normal">Zin Wine</h5>
               <span>Gold Member</span>
             </div>
           </div>
@@ -65,22 +65,48 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#doctor" aria-expanded="false" aria-controls="doctor">
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
           </span>
-          <span class="menu-title">Basic UI Elements</span>
+          <span class="menu-title">Doctor</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="doctor">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/doctors')}}">View All Doctor</a></li>
           </ul>
         </div>
       </li>
       <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#article" aria-expanded="false" aria-controls="article">
+          <span class="menu-icon">
+            <i class="mdi mdi-laptop"></i>
+          </span>
+          <span class="menu-title">Article</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="article">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/articles')}}">View All Article</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#news" aria-expanded="false" aria-controls="news">
+          <span class="menu-icon">
+            <i class="mdi mdi-laptop"></i>
+          </span>
+          <span class="menu-title">News</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="news">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/news')}}">View All News</a></li>
+          </ul>
+        </div>
+      </li>
+      {{-- <li class="nav-item menu-items">
         <a class="nav-link" href="pages/forms/basic_elements.html">
           <span class="menu-icon">
             <i class="mdi mdi-playlist-play"></i>
@@ -137,6 +163,6 @@
           </span>
           <span class="menu-title">Documentation</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </nav>

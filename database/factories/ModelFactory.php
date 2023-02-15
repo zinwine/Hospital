@@ -12,13 +12,17 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
+$factory->define(App\Doctor::class, function (Faker\Generator $faker) {
+    // static $password;
 
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'photo' => $faker->imageUrl($width = 640, $height = 480),
+        'gender' => $faker->randomElement($array = array ('Male','Female')),
+        'department' => $faker->sentence($nbWords = 2, $variableNbWords = true),
+        'bechelor' => $faker->sentence($nbWords = 2, $variableNbWords = true),
+        'age' => numberBetween($min = 30, $max = 60) ,
+        'experience' => $faker->sentence($nbWords = 2, $variableNbWords = true),
+        'specialist' => $faker->company,
     ];
 });

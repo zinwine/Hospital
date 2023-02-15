@@ -97,7 +97,7 @@
 
         <div class="doc row">
             <div class="left col-md-4">
-                <img src="{{asset('project/img/doctor/d8.jpg')}}" class="doctor img-responsive img-rounded  well" alt="">
+                <img src="{{$doctor->photo}}" class="doctor img-responsive img-rounded  well" alt="">
 
             </div>
             <div class="right col-md-8 table-responsive">
@@ -105,29 +105,28 @@
 
                     <tr>
                         <td>Name</td>
-                        <td>Dr.Su Su</td>
+                        <td>{{$doctor->name}}</td>
 
                     </tr>
                     <tr>
-                        <td>Birthday</td>
-                        <td>6-5-1978</td>
+                        <td>Age</td>
+                        <td>{{$doctor->age}}</td>
                     </tr>
                     <tr>
                         <td>Bachelor </td>
 
-                        <td>M.B.B.S.M  Med.Sc ( Surgery ). M.R.C.S ( Edin)</td>
+                        <td>{{$doctor->bechelor}}</td>
 
                     </tr>
 
                     <tr>
                         <td>Department </td>
 
-                        <td>Dental</td>
+                        <td>{{$doctor->department}}</td>
                     </tr>
                     <tr>
                         <td>Experience </td>
-                        <td><li>ရန္ကုန္ေဆး႐ံုႀကီးတြင္ ၂ ႏွစ္တာဝန္ထမ္းေဆာင္, 2012-2014</li><li>
-                        2008 ခုႏွစ္တြင္ Thai Board of Anesthesiology ဒီပလိုမာဘြဲ႔ ကိုရရွိ။ </li>
+                        <td><li>{{$doctor->experience}}</li>
 </td>
                     </tr>
                 </table>
