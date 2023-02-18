@@ -13,6 +13,8 @@
 
 // Route::get('lang/{lang}', 'Frontend\HomeController@lang');
 
+// ************* Fronted Route *****************
+
 Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
     
     // ************* Home Page Route *****************
@@ -25,11 +27,26 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
     
     // ************* Article Route *****************
     
+    Route::get('/articles', 'Frontend\ArticleController@index');
     Route::get('/article_detail/{id}', 'Frontend\ArticleController@article_detail');
     
     // ************* News Route *****************
     
+    Route::get('/news', 'Frontend\NewsController@index');
     Route::get('/news_detail/{id}', 'Frontend\NewsController@news_detail');
+
+    // ************* Service Route *****************
+    
+    Route::get('/services', 'Frontend\HomeController@services');
+
+    // ************* About Us Route *****************
+    
+    Route::get('/about_us', 'Frontend\HomeController@about_us');
+
+    // ************* Career Route *****************
+    
+    Route::get('/career', 'Frontend\CareerController@index');
+    Route::get('/career_detail/{id}', 'Frontend\CareerController@show');
     
 });
 // ************* Rooms Route *****************
@@ -38,32 +55,8 @@ Route::get('/room_category', 'RoomController@index');
 Route::get('/vip_all', 'RoomController@vip_rooms');
 Route::get('/normal_all', 'RoomController@normal_rooms');
 
-Route::get('/news',function (){
-    return view('project.news');
-});
-Route::get('/single_new',function(){
-    return view('project.single_new');
-});
-Route::get('/articles',function (){
-    return view('project.articles');
-});
-Route::get('/single_article',function(){
-    return view('project.single_article');
-});
-Route::get('/career',function (){
-    return view('project.career');
-});
-Route::get('/career_detail',function(){
-    return view('project.career_detail');
-});
 Route::get('/booking',function(){
     return view('project.booking');
-});
-Route::get('/services',function(){
-    return view('project.services');
-});
-Route::get('/about_us',function(){
-    return view('project.about_us');
 });
 Route::get('/contact_us',function (){
     return view('project.contact_us');
@@ -96,9 +89,22 @@ Route::prefix('admin')->group(function () {
     // ************* Article Route *****************
 
     Route::get('articles', 'Backend\ArticleController@index');
+    Route::get('add_new_article', 'Backend\ArticleController@create');
+    Route::post('add_new_article', 'Backend\ArticleController@store');
+    Route::get('article/edit/{id}', 'Backend\ArticleController@edit');
+    Route::post('article/edit/{id}', 'Backend\ArticleController@update');
+    Route::get('article_detail/{id}', 'Backend\ArticleController@show');
+    Route::get('article/{id}', 'Backend\ArticleController@destroy');
+    
 
     // ************* News Route *****************
 
     Route::get('news', 'Backend\NewsController@index');
+    Route::get('add_news', 'Backend\NewsController@create');
+    Route::post('add_news', 'Backend\NewsController@store');
+    Route::get('news/edit/{id}', 'Backend\NewsController@edit');
+    Route::post('news/edit/{id}', 'Backend\NewsController@update');
+    Route::get('news_detail/{id}', 'Backend\NewsController@show');
+    Route::get('news/{id}', 'Backend\NewsController@destroy');
 
 });

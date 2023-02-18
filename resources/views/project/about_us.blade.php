@@ -6,7 +6,7 @@
     <div class="container-fluid contact_header">
      <img class="kanote" src="{{asset('project/img/cc/ka.png')}}">
          <div class="col-xs-12">
-                <h1 style="line-height:100px;">About Us</h1>
+                <h1 style="line-height:100px;">{{__('main.about')}}</h1>
             </div>
     <img class="kanote_right" src="{{asset('project/img/cc/kan.png')}}">
         </div>
@@ -16,7 +16,7 @@
 
 
         <div class="row">
-            <h2 style="padding:15px;">Meet Our Team</h2>
+            <h2 style="padding:15px;">{{__('main.meet_us')}}</h2>
             <div class="col-md-3 col-sm-6">
                 <div class="dor">
                     <img src="{{asset('project/img/doctor/dr11.jpg')}}">
@@ -62,7 +62,7 @@
             <div class="col-md-6"><img src="{{asset('project/img/coast-plaza--hospital.jpg')}}" alt="" class="img-responsive"/></div>
             <div class="col-md-6">
                 <div class="text-box box-left">
-                    <h3 style="padding-bottom:20px;"><b>Successful Stories in Myanmar </b></h3>
+                    <h3 style="padding-bottom:20px;"><b>{{__('main.our_stories')}}</b></h3>
 
 
                     <p style="font-size: 16px; font-family: 'myanmar3';">
@@ -86,7 +86,7 @@
         <div class="row" style="margin-top: 50px;">
             <div class="col-md-6">
                 <div class="text-box box-right"  >
-                    <h3 style="padding-bottom:20px;"><b>Our Mission</b></h3>
+                    <h3 style="padding-bottom:20px;"><b>{{__('main.our_miss')}}</b></h3>
 
 
                     <p style="font-size: 16px; font-family: 'thin';">ကြ်န္ု္ပ္တို႔ေဆးရံုႀကီးမွ လူနာမ်ားကို အေတြ႔အၾကံဳရင့္ ဆရာဝန္ႀကီးမ်ား၊ကြ်မ္းက်င္ သူနာျပဳမ်ား ျဖင့္ သက္ဆိုင္ရာဌာနအသီးသီးမွ ဝန္ေဆာင္မႈေကာင္းမ်ားေပးႏိုင္ေအာင္ အစဥ္အျမဲ ႀကိဳးစားလ်က္ရိွပါသည္။ေရွ့လာမည့္ ႏွစ္ကာလမ်ားတြင္ ပိုမို က်န္းမာစြာေနထိုင္  နိုင္ရန္အတြက္ ကြ်န္္ုပ္တို႔မွ ဝန္ေဆာင္မႈေကာင္းမ်ားေပးနိုင္ရန္ ရည္မွန္းထားပါသည္။နိုင္ငံတကာရိွ ေဆးရံုႀကီးမ်ားႏွင့္ ခ်ိတ္ဆက္ ပူးေပါင္း ေဆာင္ရြက္ျပီး နည္းပညာအသစ္မ်ား ၊ကုထံုးအသစ္မ်ား ရယူကာ ကုသေဆာင္ရြက္ေပးနိုင္ရန္ ႀကိဳးစားလ်က္ရိွပါသည္။</p>

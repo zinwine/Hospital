@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {
+    public function index(){
+        $news = News::paginate(6);
+        return view('project.news', compact('news'));
+    }
     
     public function news_detail($id)
     {

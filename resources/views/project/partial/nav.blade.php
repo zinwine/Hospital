@@ -92,13 +92,13 @@
                         <li><a href="{{url('/')}}"><i class="fa fa-home"></i> {{ __('main.home') }}
                         </a></li>
                         <li class="dropdown">
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info-circle"></i> Information <span style="color:#fff;" class="caret"></span></a>
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-info-circle"></i> {{ __('main.info') }} <span style="color:#fff;" class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{url('/news')}}">News</a></li>
+                                <li><a href="{{url('/news')}}">{{ __('main.news') }}</a></li>
 
-                                <li><a href="{{url('/articles')}}">Articles</a></li>
+                                <li><a href="{{url('/articles')}}">{{ __('main.arc') }}</a></li>
 
-                                <li><a href="{{url('/career')}}">Career</a></li>
+                                <li><a href="{{url('/career')}}">{{ __('main.career') }}</a></li>
                             </ul>
                         </li>
                         <li><a href="{{url('/room_category')}}"><i class="fa fa-plus-square"></i> {{ __('main.room') }}
@@ -147,6 +147,8 @@
                                 @endforeach
                             </ul>
                         </li>
+                        <li class="lang"><p style="color: #eee;
+                            font-size: 16px; padding-top: 15px;}">{{strtoupper(Illuminate\Support\Facades\App::getLocale())}}</p></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <div class="col-xs-10">
-                <p style="margin:0;">CALL US NOW</p>
+                <p style="margin:0;">{{ __('main.call_me') }}</p>
                 <p><b>091323254</b></p>
             </div>
         </div>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-xs-10">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="{{ __('main.search') }}">
                 </div>
             </div>
         </div>

@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
+    public function index(){
+        $articles = Article::paginate(6);
+        return view('project.articles', compact('articles'));
+    }
+
     public function article_detail($id)
     {
         $article = Article::find($id);

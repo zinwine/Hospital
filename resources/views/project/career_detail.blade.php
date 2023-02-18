@@ -10,7 +10,7 @@
     <div class="container-fluid contact_header">
      <img class="kanote" src="{{asset('project/img/cc/ka.png')}}">
          <div class="col-xs-12">
-                <h1 style="line-height:100px;">Careers</h1>
+                <h1 style="line-height:100px;">{{__('main.career')}}</h1>
             </div>
     <img class="kanote_right" src="{{asset('project/img/cc/kan.png')}}">
         </div>
@@ -22,37 +22,35 @@
                     <tr>
                         <td><i class="fa fa-calendar"></i></td>
                         <td> <h4>Dated Post</h4>
-                            <p>4-5-2017</p></td>
+                            <p>{{$career->latest_date}}</p></td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-map-marker"></i></td>
                         <td><h4>Location</h4>
-                            <p>In Yangon</p></td>
+                            <p>In {{$career->location}}</p></td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-user"></i></td>
                         <td><h4>Job Title</h4>
-                            <p>Nurse</p></td>
+                            <p>{{$career->position}}</p></td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-money "></i></td>
                         <td><h4>Salary</h4>
-                            <p>$1000-$1500</p></td>
+                            <p>$ {{$career->salary}}</p></td>
                     </tr>
                 </table>
                 <a href="#"><button class="btn detail_btn" data-toggle="modal" data-target="#myModalHorizontal">Apply now</button></a>
             </div>
 
             <div class="col-md-8 car_right">
-                <h2>HR Assistance</h2>
+                <h2>{{$career->position}}</h2>
                 <hr style="background: #D5DEE3;height: 1px">
-                <p>Roles and Responsibilities : 1.  Prepare income tax 2.   Arrange interview process 3.    Making temporary / permanent employee card 4.   Keep personal file and record to HRMS 5.    Record employees leaves with HRMS and manual 6. Do pre-employee check up and follow up 7.   Inform new staff to start at PHSH 8.    Arrange notice board 9. Prepare SSR and PR 10.  Arrange training schedule / record 11.  Other HR matter.</p>
+                <p>{{$career->description}}</p>
                 <!-- <div class="row"> -->
                 <h4 style="margin-top: 30px">Requirment</h4>
                 <ul type="circle">
-                    <li>Any graduate Qualification  :   - Public relations knowledge would be preferred </li>
-                    <li>Must be initiative, hardworking, willing to learn and help to staffs </li>
-                    <li>Minimum 1 year work experience in a related field</li>
+                    <li>{{$career->requirment}} </li>
                 </ul>
                 <!-- </div> -->
             </div>

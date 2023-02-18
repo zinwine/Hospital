@@ -26,9 +26,12 @@ class HomeController extends Controller
         }
         return view('project.home', compact('doctors', 'article', 'choose_news'));
     }
-    public function lang($lang){
-        App::setLocale($lang);
-        // return App::getLocale();
-        return redirect()->back();
+
+    public function services(){
+        return view('project.services');
+    }
+
+    public function about_us(){
+        return view('project.about_us');
     }
 }

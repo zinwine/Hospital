@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>@yield("title")</title>
     @include('backend.partials.header')
   </head>
   <body>
@@ -31,5 +31,6 @@
     </div>
     <!-- container-scroller -->
   @include('backend.partials.footer_script')
+  @yield('script')
   </body>
 </html>

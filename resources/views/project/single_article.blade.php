@@ -9,7 +9,7 @@
 <div class="container-fluid contact_header">
      <img class="kanote" src="{{asset('project/img/cc/ka.png')}}">
          <div class="col-xs-12">
-                <h1 style="line-height:100px;">Article</h1>
+                <h1 style="line-height:100px;">{{__('main.arc')}}</h1>
             </div>
     <img class="kanote_right" src="{{asset('project/img/cc/kan.png')}}">
         </div>
@@ -20,13 +20,17 @@
                 <h3>{{$article->title}}</h3>
                 <i class="fa fa-user">&nbsp;&nbsp;Dr. {{$article->author}}&nbsp;&nbsp;</i>
                 <i class="fa fa-calendar">&nbsp;&nbsp;{{$article->created_at}}</i>
-                <img src="{{$article->image}}" alt="" class="img-responsive" style="float: right; padding-left:7px;">
+                @if(strpos($article->image, "https://") !== false)
+                <img class="news_img img-responsive" src={{$article->image}} alt="image" style="float: right; padding-left:7px;"/>
+                @else
+                <img class="news_img img-responsive" src={{asset('backend/assets/images/upload/'. $article->image)}} alt="image" style="float: right; padding-left:7px;"/>
+                @endif
                 <p>{{$article->body}}</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="rel_article" >
-                <div style="text-align:center; background:#00838f; "><h3 style="margin-top:5px; line-height:42px; color:#fff;">Related Articles</h3></div>
+                <div style="text-align:center; background:#00838f; "><h4 style="margin-top:5px; line-height:42px; color:#fff;">{{__('main.relate_arc')}}</h4></div>
                 <table class="table table-hover">
                     @php
                     $i = 0;
@@ -36,7 +40,13 @@
                     @php $i++;  @endphp
                     <tr class="success">
                         <td><a href="{{url('article_detail/' . $arc->id)}}">
-                            <img src="{{$arc->image}}" style="width: 100px;height: 100px"></a>
+                            @if(strpos($arc->image, "https://") !== false)
+                            <img class="news_img img-responsive" src={{$arc->image}} alt="image" style="width: 100px;height: 100px"/>
+                            @else
+                            <img class="news_img img-responsive" src={{asset('backend/assets/images/upload/'. $arc->image)}} alt="image" style="width: 100px;height: 100px"/>
+                            @endif
+                        </a>
+                            
                         </td>
                         <td>
                             <a href="{{url('article_detail/' . $arc->id)}}"><p style="font-size:13px; line-height:50px;">{{$arc->title}}</p></a></td>

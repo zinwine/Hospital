@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9df962a3160864a20f3bce4acfa8a2c7",
+    "content-hash": "d2a092197d2897eb84ea3fa30ec33eb6",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -806,6 +806,76 @@
                 "php"
             ],
             "time": "2017-03-05T18:23:57+00:00"
+        },
+        {
+            "name": "nwidart/laravel-modules",
+            "version": "1.27.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nWidart/laravel-modules.git",
+                "reference": "5f149198bd3d4cf9c9323a301d5b8b0aabc44591"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/5f149198bd3d4cf9c9323a301d5b8b0aabc44591",
+                "reference": "5f149198bd3d4cf9c9323a301d5b8b0aabc44591",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.4",
+                "mockery/mockery": "~0.9.3",
+                "orchestra/testbench": "^3.1|^3.2|^3.3|^3.4",
+                "phpro/grumphp": "^0.11",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nwidart\\Modules\\LaravelModulesServiceProvider"
+                    ],
+                    "aliases": {
+                        "Module": "Nwidart\\Modules\\Facades\\Module"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Nwidart\\Modules\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com",
+                    "homepage": "https://nicolaswidart.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Module management",
+            "keywords": [
+                "laravel",
+                "module",
+                "modules",
+                "nwidart",
+                "rad"
+            ],
+            "support": {
+                "issues": "https://github.com/nWidart/laravel-modules/issues",
+                "source": "https://github.com/nWidart/laravel-modules/tree/1.0"
+            },
+            "time": "2017-08-31T16:09:16+00:00"
         },
         {
             "name": "paragonie/random_compat",

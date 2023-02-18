@@ -6,7 +6,7 @@
     <div class="container-fluid contact_header">
      <img class="kanote" src="{{asset('project/img/cc/ka.png')}}">
          <div class="col-xs-12">
-                <h1 style="line-height:100px;">News</h1>
+                <h1 style="line-height:100px;">{{__('main.news')}}</h1>
             </div>
     <img class="kanote_right" src="{{asset('project/img/cc/kan.png')}}">
         </div>
@@ -18,7 +18,11 @@
 
             <div class="col-sm-10 col-sm-offset-1 well">
 
-                <img src="{{$news->image}}" class="img-responsive"  alt="...">
+                @if(strpos($news->image, "https://") !== false)
+                <img class="news_img img-responsive" src={{$news->image}} alt="image" style=""/>
+                @else
+                <img class="news_img img-responsive" src={{asset('backend/assets/images/upload/'. $news->image)}} alt="image" style=""/>
+                @endif
 
                 <div class="caption">
 

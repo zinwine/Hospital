@@ -89,6 +89,7 @@
         <div class="collapse" id="article">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{url('admin/articles')}}">View All Article</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/add_new_article')}}">Add New Article</a></li>
           </ul>
         </div>
       </li>
@@ -103,6 +104,7 @@
         <div class="collapse" id="news">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{url('admin/news')}}">View All News</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/add_news')}}">Add News</a></li>
           </ul>
         </div>
       </li>

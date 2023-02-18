@@ -42,15 +42,18 @@
     <div class="container-fluid article_container">
         <div class="row">
             <div class="heading_1 col-md-12" style="text-align: center;margin-top:80px; margin-bottom: -10px">
-                <h2 class="doctor_h3 wow pulse" style="margin-top: -20px; margin-bottom:1px;">Health articles</h2>
+                <h2 class="doctor_h3 wow pulse" style="margin-top: -20px; margin-bottom:1px;">{{ __('main.arc') }}</h2>
                 <img src="{{asset('project/img/cc/ki.png')}}" alt="">
             </div>
         </div>
 
         <div class="row article_content">
             <div class="col-md-6 col-md-push-6 article_right" >
-                <img src={{$article->image}} class="img-responsive" style="width:100%;" alt="" >
-
+                @if(strpos($article->image, "https://") !== false)
+                <img class="news_img img-responsive" src={{$article->image}} alt="image" style="width: 100%;"/>
+                @else
+                <img class="news_img img-responsive" src={{asset('backend/assets/images/upload/'. $article->image)}} alt="image" style="width: 100%;"/>
+                @endif
             </div>
             
             <div class="col-md-6 col-md-pull-6 article_left">
@@ -74,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="heading_1 col-md-12" style="text-align: center;margin-top:0px;margin-bottom: 70px">
-                    <h2 class="doctor_h3 wow pulse" style="margin-bottom:1px; padding-top: 30px; ">News</h2>
+                    <h2 class="doctor_h3 wow pulse" style="margin-bottom:1px; padding-top: 30px; ">{{ __('main.news') }}</h2>
                     <img src="{{asset('project/img/cc/ki.png')}}" alt="">
                 </div>
             </div>
@@ -86,8 +89,11 @@
 
                     <div class="row left_news">
                         <div class="col-md-6" style="padding:0;">
-                            <img src="{{ $news->image }}" alt="" class="news_img img-responsive">
-
+                            @if(strpos($news->image, "https://") !== false)
+                            <img class="news_img img-responsive" src={{$news->image}} alt="image" style="width: 100%;"/>
+                            @else
+                            <img class="news_img img-responsive" src={{asset('backend/assets/images/upload/'. $news->image)}} alt="image" style="width: 100%;"/>
+                            @endif
                             <p class="news_z-index">
                                 <i class="fa fa-user"></i> {{ $news->author }} <i class="fa fa-calendar"></i> {{ $news->created_at}}</p>
                         </div>
